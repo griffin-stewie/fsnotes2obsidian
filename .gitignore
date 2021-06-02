@@ -1,0 +1,11 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+/sandbox
+/.swiftpm/xcode/xcshareddata/xcschemes/fsnotes2obsidian-Package.xcscheme
+/.swiftpm/xcode/xcshareddata/xcschemes/fsnotes2obsidian.xcscheme
+/.swiftpm/xcode/xcshareddata/xcschemes/fsnotes2obsidianCore.xcscheme
