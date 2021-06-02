@@ -21,7 +21,7 @@ struct FrontmatterCommand: ParsableCommand {
 
 extension FrontmatterCommand {
     private func run(options: FrontmatterCommandOptions) throws {
-        var results = try frontmatters(in: options.fsNotesDirectory)
+        var results = try frontmatters(in: options.markdownFilesDirectory)
 
         if options.onlyDuplicates {
             results = results.filter({ (_, frontmatters: [String]) in
