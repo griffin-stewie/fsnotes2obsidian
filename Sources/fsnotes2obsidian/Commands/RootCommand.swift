@@ -5,8 +5,7 @@ import fsnotes2obsidianCore
 struct RootCommand: ParsableCommand {
     static var configuration = CommandConfiguration(
         commandName: "fsnotes2obsidian",
-        abstract: "FSNotes の Markdown を Obsidian 向けの移行サポートツール",
-        discussion: "DISCUSSION HERE",
+        abstract: "FSNotes Markdown Migration Support Tool for Obsidian",
         version: "1.0.0",
         subcommands: [
             ConvertCommand.self,

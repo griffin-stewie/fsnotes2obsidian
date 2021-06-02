@@ -7,8 +7,7 @@ struct ConvertCommand: ParsableCommand {
 
     static var configuration = CommandConfiguration(
         commandName: "convert",
-        abstract: "タグなどを Front Matter に変換",
-        discussion: "DISCUSSION HERE"
+        abstract: "Convert tags, etc. to Front Matter"
     )
 
     @OptionGroup()
@@ -23,17 +22,17 @@ struct ConvertCommand: ParsableCommand {
 extension ConvertCommand {
     private func run(options: ConvertCommandOptions) throws {
         try options.outputDirectory?.mkdir(.p)
-        
+
         let files = try convertFiles(
             fsNotesDirectory: options.fsNotesDirectory,
             destinationDirectory: options.inPlace ? nil : options.outputDirectory!
         )
-        
+
         for file in files {
             try file.convert()
         }
     }
-    
+
     private func convertFiles(fsNotesDirectory: Path, destinationDirectory: Path?) throws -> [ConvertFile] {
         let fileURLs = try FSNotes2Obsidian.markdownFileURLs(from: fsNotesDirectory)
 
@@ -46,11 +45,11 @@ extension ConvertCommand {
             // create an array contains nil value for zipping later step.
             destinationPaths = Array(repeating: nil, count: fileURLs.count)
         }
-        
+
         let filePaths = fileURLs.map { Path.init(url: $0)! }
-        
+
         let verbose = Logger.shard.verbose
-        
+
         let files = zip(filePaths, destinationPaths).map { (original, destination) -> ConvertFile in
             ConvertFile(
                 originalPath: original,
@@ -60,7 +59,7 @@ extension ConvertCommand {
                 needsPrintProcess: verbose
             )
         }
-                
+
         return files
     }
 }

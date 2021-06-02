@@ -7,8 +7,7 @@ struct FrontmatterCommand: ParsableCommand {
 
     static var configuration = CommandConfiguration(
         commandName: "frontmatter",
-        abstract: "Front Matter があれば出力するだけ",
-        discussion: "DISCUSSION HERE"
+        abstract: "Output only Front Matter."
     )
 
     @OptionGroup()
