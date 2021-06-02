@@ -35,8 +35,8 @@ extension ConvertCommand {
     }
     
     private func convertFiles(fsNotesDirectory: Path, destinationDirectory: Path?) throws -> [ConvertFile] {
-        let fileURLs = FSNotes2Obsidian.markdownFileURLs(from: fsNotesDirectory)
-        
+        let fileURLs = try FSNotes2Obsidian.markdownFileURLs(from: fsNotesDirectory)
+
         let destinationPaths: [Path?]
         if let destinationDirectory = destinationDirectory {
             destinationPaths = fileURLs.map { original -> Path in

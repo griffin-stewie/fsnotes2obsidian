@@ -40,7 +40,7 @@ extension FrontmatterCommand {
     }
     
     private func frontmatters(in fsNotesDirectory: Path) throws -> [(url: URL, frontmatters: [String])] {
-        let fileURLs = FSNotes2Obsidian.markdownFileURLs(from: fsNotesDirectory)
+        let fileURLs = try FSNotes2Obsidian.markdownFileURLs(from: fsNotesDirectory)
 
         let results = try fileURLs.compactMap { url -> (url: URL, frontmatters: [String])? in
             let frontmatters = try FSNotes2Obsidian.frontmatters(of: url)
